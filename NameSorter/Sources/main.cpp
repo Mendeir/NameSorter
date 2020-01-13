@@ -34,13 +34,25 @@ int main()
 
 int getNameLength()
 {
-	int nameLength;
+	while (true)
+	{
+		int nameLength;
 
-	std::cout << "How many names would you like to enter? ";
-	std::cin >> nameLength;
+		std::cout << "How many names would you like to enter? ";
+		std::cin >> nameLength;
 
-	return nameLength;
-
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+			std::cout << "Invalid Input! Please try again\n\n";
+		}
+		else
+		{
+			std::cin.ignore(32767, '\n');
+			return nameLength;
+		}
+	}
 }
 
 void getNames(int nameLength, std::string* names)
@@ -49,6 +61,9 @@ void getNames(int nameLength, std::string* names)
 	{
 		std::cout << "Enter name #" << counter + 1 << ": ";
 		std::cin >> names[counter];
+
+		std::cin.ignore(32767, '\n');
+
 	}
 }
 
