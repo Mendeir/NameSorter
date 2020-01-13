@@ -1,5 +1,5 @@
 # NameSorter
-A program that receives multiple inputs from user and sorts it
+A program that receives multiple inputs from user and sorts(selection sort) the output 
 
 ### Sample Input:
 ```
